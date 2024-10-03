@@ -1,0 +1,14 @@
+version: '3.2'
+services:
+  postgres:
+    build:
+      context: ./postgres
+    image: enzo/postgres_db:latest
+    container_name: postgres_db
+    ports:
+      - "5432:5432"
+    networks:
+      - backend
+networks:
+  backend:
+    driver: "bridge"
