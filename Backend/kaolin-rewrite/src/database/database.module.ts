@@ -1,0 +1,21 @@
+import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+
+@Module({
+  imports: [
+    TypeOrmModule.forRoot({
+      type: 'postgres',
+      host: 'localhost',
+      port: 5432,
+      username: 'enzo',
+      password: 'instrument',
+      database: 'kaolin',
+      entities: [],
+      synchronize: true,
+      logging: true,
+      logger: 'advanced-console',
+    }),
+  ],
+  exports: [TypeOrmModule],
+})
+export class DatabaseModule {}
